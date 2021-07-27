@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    background-image: url('img/board-bg.jpg');
+    background-size: cover;
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: color;
+}
+
+.board-main {
+    width: 100%;
+    min-height: 100vh;
+    padding-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.task-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.task-header {
+    margin-bottom: 16px;
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: black 10px 10px 1em ;
+    width: 125px;
+    height: 32px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+.taskcontainer {
+    width: 200px;
+    min-height: 600px;
+    box-shadow: black 10px 10px 1em ;
+    border-radius: 30px;
+    padding: 16px;
+    margin-bottom: 100px;
+    margin-left: 32px;
+    margin-right: 32px;
+}
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 200px;
+    padding: 8px;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.task-person {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 32px;
+    min-height: 32px;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.bg-todo {
+    background-color: rgba(252, 150, 150, 0.75);
+}
+
+.bg-progress {
+    background-color: rgba(255, 255, 150, 0.75);
+}
+
+.bg-testing {
+    background-color: rgba(178, 150, 255, 0.75);
+}
+
+.bg-done {
+    background-color: rgba(201, 255, 150, 0.75);
+}

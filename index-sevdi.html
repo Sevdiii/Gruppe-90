@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./templates/header.css">
+    <link rel="stylesheet" href="./join.css">
+    <script src="./join.js"></script>
+
+    <script src="./template.js"></script>
+    <title>Join</title>
+
+    <!--Template---Script-->
+
+</head>
+
+<body onload="includeHTML(), loadAllTickets()">
+
+
+    <div w3-include-html="./templates/header.html"></div>
+
+    <div class="first-container-topic">
+        <h1>Add Task</h1>
+        <p>Learning Management System Project</p>
+    </div>
+
+    <div class="main-container">
+        <div class="container-left">
+
+            <div class="field">
+                <h2>TITLE</h2>
+                <input id="title" type="text">
+            </div>
+            <div class="field">
+                <h2>CATEGORY</h2>
+                <select name="Category" id="category-select">
+                    <option value="">Choose Category</option>
+                    <option value="Management">Management</option>
+                    <option value="Controlling">Controlling</option>
+                    <option value="Finance">Finance</option>
+                    <option value="IT">IT</option>
+                    <option value="Web">Web</option>
+              
+                </select>
+            </div>
+            <div class="field">
+                <h2>DESCRIPTION</h2>
+                <input id="description" type="text">
+            </div>
+
+        </div>
+
+        <div class="container-right">
+            <div class="field">
+                <h2>DUE DATE</h2>
+                <input id="duedate" type="text">
+            </div>
+            <div class="field">
+                <h2>URGENCY</h2>
+                <select name="Urgency" id="urgency-select">
+                    <option value="">Choose priority</option>
+                    <option value="High">Hight</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                  
+                </select>
+            </div>
+            <div class="field21">
+                <h2>ASSIGNED TO</h2>
+
+            </div>
+            <div class="profil-and-add">
+                <img id="profil" src="./img/user.png" alt="">
+                <img id="add" src="./Kanban Gruppenarbeit/icon plus.png" alt="">
+            </div>
+
+            <div class="create-and-cancel">
+                <div class="cancel">
+                    <button onclick=" cancel()" id="ticket-cancel" class="ca-btn">CANCEL</button>
+                </div>
+                <div class="create">
+                    <button onclick="createTicket(), ShowTicket()" id="ticket-create" class="cr-btn">CREATE TICKET</button>
+                </div>
+                <div id="showAllTicket" class="showTicket">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
