@@ -1,6 +1,7 @@
 function createTicket() {
 
 
+    let name = document.getElementById('name');
     let titel = document.getElementById('title');
     let duedate = document.getElementById('duedate');
     let decription = document.getElementById('description');
@@ -8,6 +9,7 @@ function createTicket() {
     let category = document.getElementById('category-select');
 
     let TICKET = { // Innerer JSON wird erstellt in der Funktion
+        'Name': name.value,
         'Titel': titel.value,
         'DueDate': duedate.value,
         'Category': category.value,
@@ -24,8 +26,8 @@ function createTicket() {
     localStorage.setItem('AllTickets', AllTicketsAsString); // speichert Text im LocalStorage
     console.log(AllTickets);
 
-
-    titel.value = ''; //value leersetzen
+    name.value = ''; //value leersetzen
+    titel.value = '';
     duedate.value = '';
     category.value = '';
     urgency.value = '';

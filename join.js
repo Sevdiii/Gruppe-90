@@ -10,10 +10,3 @@ function loadAllTickets() {
     console.log('loadedAllTickets', AllTickets);
 
 }
-
-function ShowTicket() {
-    let AllTicketsAsString = localStorage.getItem('AllTickets');
-
-
-    document.getElementById('showAllTicket').innerHTML = `Ihre Tickets: ${AllTicketsAsString}`;
-}

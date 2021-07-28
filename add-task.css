@@ -27,7 +27,7 @@ body {
 }
 
 .container-left {
-    margin-top: 75px;
+    margin-top: -10px;
     margin-right: 120px;
     display: flex;
     flex-direction: column;
