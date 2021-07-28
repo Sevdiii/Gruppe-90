@@ -38,6 +38,7 @@ body {
     border-radius: 12px;
     justify-content: space-between;
     margin-bottom: 12px;
+    height: 100px;
 }
 
 .id {

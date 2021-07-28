@@ -8,8 +8,8 @@ function backlog() {
         <div class="id width17">
             <img src="./img/user.png">
             <div class="name">
-                <p>Anil Cokbilir</p>
-                <p>Anil.Cokbilir@gmail.com</p>
+                <p>${AllTickets[i].Name}</p>
+               
             </div>
         </div>
         <div id="title" class="width17">${AllTickets[i].Titel}</div>
@@ -18,7 +18,7 @@ function backlog() {
         <p class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
         </div>
-        
+
     `
 
     };
