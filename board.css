@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-image: url('img/board-bg.jpg');
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.75);
     background-blend-mode: color;
 }
 
@@ -50,6 +50,7 @@ body {
     align-items: center;
     max-width: 200px;
     padding: 8px;
+    margin-bottom: 16px;
     border-radius: 15px;
     background-color: rgba(255, 255, 255, 0.5);
 }
@@ -68,14 +69,30 @@ body {
     background-color: rgba(252, 150, 150, 0.75);
 }
 
+.bg-todo-highlight {
+    background-color: rgb(255, 150, 150);
+}
+
 .bg-progress {
     background-color: rgba(255, 255, 150, 0.75);
+}
+
+.bg-progress-highlight {
+    background-color: rgb(255, 255, 150);
 }
 
 .bg-testing {
     background-color: rgba(178, 150, 255, 0.75);
 }
 
+.bg-testing-highlight {
+    background-color: rgb(178, 150, 255);
+}
+
 .bg-done {
     background-color: rgba(201, 255, 150, 0.75);
+}
+
+.bg-done-highlight {
+    background-color: rgb(201, 255, 150);
 }
