@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <link rel="stylesheet" href="./templates/header.css">
     <link rel="stylesheet" href="backlog.css">
-    <link rel="stylesheet" href="/templates/header.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-
-    <script src="template.js"></script>
+    <script src="./templates/template.js"></script>
+    <script src="join.js"></script>
+    <script src="backlog.js"></script>
     <title>Join</title>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), backlog()">
     <div w3-include-html="templates/header.html"></div>
 
     <div class="right-container">
@@ -26,21 +25,29 @@
         </div>
 
         <div class="caption2">
-            <h3>ASSIGNED TO</h3>
-            <h3>CATEGORY</h3>
-            <h3>DETAILS</h3>
+            <h3 class="width17">ASSIGNED TO</h3>
+            <h3 class="width17">TITLE</h3>
+            <h3 class="width17">DUE DATE</h3>
+            <h3 class="width17">CATEGORY</h3>
+            <h3 class="width30">DESCRIPTION</h3>
         </div>
         <div class="content">
-            <div class="id">
+            <div class="id width17">
                 <img src="./img/user.png">
                 <div class="name">
                     <p>Anil Cokbilir</p>
                     <p>Anil.Cokbilir@gmail.com</p>
                 </div>
             </div>
+            <div id="title" class="width17"></div>
+            <div class="width17">DUE DATE</div>
 
-            <p class="width33">Marketing</p>
-            <p class="width33">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil eos </p>
+            <p class="width17">Marketing</p>
+            <p class="width30">Lorem ipsum dolor sit amet </p>
+        </div>
+
+        <div id="test">
+
         </div>
 
     </div>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templates/header.css">
+    <link rel="stylesheet" href="board.css">
+    <script src="templates/template.js"></script>
+    <script src="board.js"></script>
+    <title>Board</title>
+</head>
+
+<body onload="updateHTML()">
+    <div w3-include-html="templates/header.html"></div>
+    <div class="board-main">
+
+        <div class="task-main">
+            <span class="task-header">TO DO</span>
+            <div id="todo-tasks" class="taskcontainer bg-todo" ondragleave="removeHighlightToDo('todo-tasks')" ondrop="moveTo('todo')" ondragover="allowDrop(event); highlightToDo('todo-tasks')">
+                
+            </div>
+        </div>
+
+        <div class="task-main">
+            <span class="task-header">IN PROGRESS</span>
+            <div id="inprogress-tasks" class="taskcontainer bg-progress" ondragleave="removeHighlightInProgress('inprogress-tasks')" ondrop="moveTo('inprogress')" ondragover="allowDrop(event); highlightInProgress('inprogress-tasks')"> 
+                
+            </div>
+        </div>
+
+        <div class="task-main">
+            <span class="task-header">TESTING</span>
+            <div id="testing-tasks" class="taskcontainer bg-testing" ondragleave="removeHighlightTesting('testing-tasks')" ondrop="moveTo('testing')" ondragover="allowDrop(event); highlightTesting('testing-tasks')">
+                
+            </div>
+        </div>
+
+        <div class="task-main">
+            <span class="task-header">DONE</span>
+            <div id="done-tasks" class="taskcontainer bg-done" ondragleave="removeHighlightDone('done-tasks')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDone('done-tasks')">
+            
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
