@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./templates/header.css">
-    <link rel="stylesheet" href="./join.css">
+    <link rel="stylesheet" href="./add-task.css">
     <script src="./join.js"></script>
     <script src="./add-task.js"></script>
 
@@ -29,6 +29,11 @@
 
     <div class="main-container">
         <div class="container-left">
+
+            <div class="field">
+                <h2>Name</h2>
+                <input id="name" type="text">
+            </div>
 
             <div class="field">
                 <h2>TITLE</h2>
@@ -59,8 +64,14 @@
         <div class="container-right">
             <div class="field">
                 <h2>DUE DATE</h2>
-                <input id="duedate" type="text">
+
+
+                <input id="duedate" type="date" name="trip-start" value="2018-07-22" min="2021-07-01" max="2025-12-31">
             </div>
+
+
+
+
             <div class="field">
                 <h2>URGENCY</h2>
                 <select name="Urgency" id="urgency-select">
@@ -87,9 +98,7 @@
                 <div class="create">
                     <button onclick="createTicket(), ShowTicket()" id="ticket-create" class="cr-btn">CREATE TICKET</button>
                 </div>
-                <div id="showAllTicket" class="showTicket">
 
-                </div>
 
             </div>
 
