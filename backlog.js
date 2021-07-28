@@ -17,7 +17,7 @@ function backlog() {
         <div class="width17">${AllTickets[i].DueDate}</div>
 
         <p class="width17">${AllTickets[i].Category}</p>
-        <p class="width30">L${AllTickets[i].Decription}</p>
+        <p class="width30">${AllTickets[i].Decription}</p>
    
         
         
