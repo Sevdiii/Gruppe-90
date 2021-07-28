@@ -37,6 +37,7 @@ body {
     background-color: rgb(236, 236, 236);
     border-radius: 12px;
     justify-content: space-between;
+    margin-bottom: 12px;
 }
 
 .id {
@@ -47,6 +48,8 @@ body {
 .content img {
     width: 30px;
     height: 30px;
+    padding: 12px;
+    object-fit: cover;
 }
 
 .width17 {
@@ -73,4 +76,12 @@ body {
 .flex {
     display: flex;
     flex-direction: column;
+}
+
+.name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }

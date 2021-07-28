@@ -4,8 +4,7 @@ function backlog() {
     for (let i = 0; i < AllTickets.length; i++) {
         document.getElementById('backlog').innerHTML += `
         
-     
-        
+        <div class="content">
         <div class="id width17">
             <img src="./img/user.png">
             <div class="name">
@@ -18,8 +17,7 @@ function backlog() {
 
         <p class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
-   
-        
+        </div>
         
     `
 

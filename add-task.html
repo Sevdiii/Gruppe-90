@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-body { margin: 0; font-family: 'Roboto', sans-serif; background-image: url(./img/board-bg.jpg); background-size: cover; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); background-blend-mode: color; } .right-container { margin-left: 8%;
-width: 89%; padding-left: 20px; padding-right: 20px; } .caption { display: flex; flex-direction: column; } .caption p { color: rgb(255, 255, 255); } .caption2 { display: flex; justify-content: space-between; color: rgb(255, 255, 255); } .content { display:
-flex; align-items: center; background-color: rgb(236, 236, 236); border-radius: 12px; justify-content: space-between; } .id { display: flex; align-items: center; } .content img { width: 30px; height: 30px; } .width17 { width: 17.5%; text-align: center;
-} .width30 { width: 30%; text-align: center; } #test { color: white; width: 100%; height: 300px; } #title { display: flex; flex-direction: column; } .flex { display: flex; flex-direction: column; }
-</div>
-<div class="profil-and-add">
-    <img id="profil" src="./img/user.png" alt="">
-    <img id="add" src="./Kanban Gruppenarbeit/icon plus.png" alt="">
-</div>
-
-<div class="create-and-cancel">
-    <div class="cancel">
-        <button onclick=" cancel()" id="ticket-cancel" class="ca-btn">CANCEL</button>
-=======
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,20 +25,77 @@ flex; align-items: center; background-color: rgb(236, 236, 236); border-radius: 
     <div class="first-container-topic">
         <h1>Add Task</h1>
         <p>Learning Management System Project</p>
->>>>>>> 2d08b0a643c6d089f33b18617864561958364459
-    </div>
-    <div class="create">
-        <button onclick="createTicket(), ShowTicket()" id="ticket-create" class="cr-btn">CREATE TICKET</button>
-    </div>
-    <div id="showAllTicket" class="showTicket">
-
     </div>
 
-</div>
+    <div class="main-container">
+        <div class="container-left">
 
-</div>
+            <div class="field">
+                <h2>TITLE</h2>
+                <input id="title" type="text">
+            </div>
+            <div class="field">
+                <h2>CATEGORY</h2>
+                <select name="Category" id="category-select">
+                    <option value="">Choose Category</option>
+                    <option value="Management">Management</option>
+                    <option value="Controlling">Controlling</option>
+                    <option value="Finance">Finance</option>
+                    <option value="IT">IT</option>
+                    <option value="Web">Web</option>
+                    <option value="NBA"></option>
+                
+                    
+              
+                </select>
+            </div>
+            <div class="field">
+                <h2>DESCRIPTION</h2>
+                <input id="description" type="text">
+            </div>
 
-</div>
+        </div>
+
+        <div class="container-right">
+            <div class="field">
+                <h2>DUE DATE</h2>
+                <input id="duedate" type="text">
+            </div>
+            <div class="field">
+                <h2>URGENCY</h2>
+                <select name="Urgency" id="urgency-select">
+                    <option value="">Choose priority</option>
+                    <option value="High">Hight</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                  
+                </select>
+            </div>
+            <div class="field21">
+                <h2>ASSIGNED TO</h2>
+
+            </div>
+            <div class="profil-and-add">
+                <img id="profil" src="./img/user.png" alt="">
+                <img id="add" src="./Kanban Gruppenarbeit/icon plus.png" alt="">
+            </div>
+
+            <div class="create-and-cancel">
+                <div class="cancel">
+                    <button onclick=" cancel()" id="ticket-cancel" class="ca-btn">CANCEL</button>
+                </div>
+                <div class="create">
+                    <button onclick="createTicket(), ShowTicket()" id="ticket-create" class="cr-btn">CREATE TICKET</button>
+                </div>
+                <div id="showAllTicket" class="showTicket">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 
 </body>
