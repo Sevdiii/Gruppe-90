@@ -42,7 +42,6 @@ body {
 .id {
     display: flex;
     align-items: center;
-    width: 33%;
 }
 
 .content img {
@@ -50,7 +49,18 @@ body {
     height: 30px;
 }
 
-.width33 {
-    width: 33%;
+.width17 {
+    width: 17.5%;
     text-align: center;
+}
+
+.width30 {
+    width: 30%;
+    text-align: center;
+}
+
+#test {
+    color: white;
+    width: 100%;
+    height: 300px;
 }

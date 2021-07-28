@@ -1,6 +1,7 @@
 let AllTickets = [];
 
 
+
 function createTicket() {
 
 
@@ -33,6 +34,7 @@ function createTicket() {
     category.value = '';
     urgency.value = '';
     decription.value = '';
+
 
 }
 
