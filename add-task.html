@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body { margin: 0; font-family: 'Roboto', sans-serif; background-image: url(./img/board-bg.jpg); background-size: cover; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); background-blend-mode: color; } .right-container { margin-left: 8%;
 width: 89%; padding-left: 20px; padding-right: 20px; } .caption { display: flex; flex-direction: column; } .caption p { color: rgb(255, 255, 255); } .caption2 { display: flex; justify-content: space-between; color: rgb(255, 255, 255); } .content { display:
 flex; align-items: center; background-color: rgb(236, 236, 236); border-radius: 12px; justify-content: space-between; } .id { display: flex; align-items: center; } .content img { width: 30px; height: 30px; } .width17 { width: 17.5%; text-align: center;
@@ -11,6 +12,35 @@ flex; align-items: center; background-color: rgb(236, 236, 236); border-radius: 
 <div class="create-and-cancel">
     <div class="cancel">
         <button onclick=" cancel()" id="ticket-cancel" class="ca-btn">CANCEL</button>
+=======
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./templates/header.css">
+    <link rel="stylesheet" href="./join.css">
+    <script src="./join.js"></script>
+    <script src="./add-task.js"></script>
+
+    <script src="./templates/template.js"></script>
+    <title>Join</title>
+
+    <!--Template---Script-->
+
+</head>
+
+<body onload="includeHTML(), loadAllTickets()">
+
+
+    <div w3-include-html="./templates/header.html"></div>
+
+    <div class="first-container-topic">
+        <h1>Add Task</h1>
+        <p>Learning Management System Project</p>
+>>>>>>> 2d08b0a643c6d089f33b18617864561958364459
     </div>
     <div class="create">
         <button onclick="createTicket(), ShowTicket()" id="ticket-create" class="cr-btn">CREATE TICKET</button>
