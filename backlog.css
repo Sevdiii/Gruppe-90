@@ -7,6 +7,7 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     background-blend-mode: color;
+    overflow-x: hidden;
 }
 
 .right-container {
@@ -85,4 +86,69 @@ body {
     align-items: center;
     justify-content: center;
     width: 100%;
+}
+
+h1 {
+    color: white;
+}
+
+.font-size {
+    width: 100%;
+    text-align: center;
+}
+
+.assigned {
+    display: flex;
+}
+
+@media(max-width: 1000px) {
+    .right-container {
+        padding-left: 0;
+        width: 100%;
+        margin-left: 0;
+        padding-right: 0;
+    }
+    .header {
+        display: none;
+    }
+    h1 {
+        text-align: center;
+        width: 100%;
+    }
+    .caption p {
+        font-size: 14px;
+        text-align: center;
+    }
+    h3 {
+        font-size: 10px;
+    }
+    .content {
+        width: 100%;
+        margin-top: 20px;
+        height: 60px;
+    }
+    .content img {
+        display: none;
+    }
+    .caption2 {
+        width: 100%;
+        margin-top: 20px;
+    }
+    .name p {
+        font-size: 12px;
+    }
+    #title {
+        font-size: 12px;
+    }
+    .font-size {
+        font-size: 12px;
+        width: 100%;
+        text-align: center;
+    }
+    .width17 {
+        font-size: 12px;
+    }
+    .width30 {
+        font-size: 12px;
+    }
 }

@@ -5,9 +5,9 @@ function backlog() {
         document.getElementById('backlog').innerHTML += `
         
         <div class="content">
-        <div class="id width17">
+        <div class="width17 assigned">
             <img src="./img/user.png">
-            <div class="name">
+            <div class="name width17">
                 <p>${AllTickets[i].Name}</p>
                
             </div>
@@ -15,7 +15,7 @@ function backlog() {
         <div id="title" class="width17">${AllTickets[i].Titel}</div>
         <div class="width17">${AllTickets[i].DueDate}</div>
 
-        <p class="width17">${AllTickets[i].Category}</p>
+        <p  class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
         </div>
 
