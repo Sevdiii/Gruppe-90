@@ -1,5 +1,9 @@
 loadAllTickets();
 
+
+
+
+
 function backlog() {
     for (let i = 0; i < AllTickets.length; i++) {
         document.getElementById('backlog').innerHTML += `

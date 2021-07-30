@@ -10,12 +10,32 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="./templates/template.js"></script>
-    <script src="join.js"></script>
-    <script src="backlog.js"></script>
+    <script src="./join.js"></script>
+    <script src="./backlog.js"></script>
+    <script src="./mini_backend.js"></script>
+
+    <script>
+        setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
+        async function init() {
+            await downloadFromServer();
+            AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
+        }
+    </script>
+
+
     <title>Join</title>
 </head>
 
-<body onload="includeHTML(), backlog()">
+<body onload=" init(), includeHTML(), backlog()">
+
+
+
+
+
+
+
+
+
     <div w3-include-html="templates/header.html"></div>
 
     <div class="right-container">
@@ -44,6 +64,14 @@
     </div>
 
 
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+
+    <script src="./firebase-ui.js"></script>
+
+    <script src="./firebase.js"></script>
 </body>
 
 </html>
