@@ -1,44 +1,10 @@
-let tasks = [{
-    'id': 0,
-    'title': 'Drag and Drop hinzufügen',
-    'responsibility': 'Florian Rehm',
-    'date': '20.07.21',
-    'category': 'todo',
-},
-{
-    'id': 1,
-    'title': 'Task hinzufügen',
-    'responsibility': 'Sevdi Azizi',
-    'date': '20.07.21',
-    'category': 'todo',
-},
-{
-    'id': 2,
-    'title': 'Backlog erstellen',
-    'responsibility': 'Anil Cokbilir',
-    'date': '20.07.21',
-    'category': 'todo',
-},
-{
-    'id': 3,
-    'title': 'Nav Bar erstellen',
-    'responsibility': 'Anil Cokbilir',
-    'date': '20.07.21',
-    'category': 'todo',
-},
-{
-    'id': 4,
-    'title': 'Board erstellen',
-    'responsibility': 'Florian Rehm',
-    'date': '20.07.21',
-    'category': 'todo',
-}];
-
 let currentDraggedElement;
+let AllTasksAsJSON;
 
 function updateHTML() {
     includeHTML();
     clearHTML();
+    loadAllTasks();
     showTodos();
     showInProgress();
     showTesting();
@@ -47,124 +13,159 @@ function updateHTML() {
     removeHighlightInProgress();
     removeHighlightTesting();
     removeHighlightToDo();
-    
+
 }
 
-function clearHTML(){
+function clearHTML() {
     document.getElementById('todo-tasks').innerHTML = '';
     document.getElementById('inprogress-tasks').innerHTML = '';
     document.getElementById('testing-tasks').innerHTML = '';
     document.getElementById('done-tasks').innerHTML = '';
 }
 
+function loadAllTasks() {
+    let AllTicketsAsString = localStorage.getItem('AllTickets');
+    AllTasksAsJSON = JSON.parse(AllTicketsAsString);
+}
 
-function showTodos(){
-    let todo = tasks.filter(t => t['category'] == 'todo');
+function showTodos() {
+    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'todo');
+    let id = 0;
 
-    for (let index = 0; index < todo.length; index++) {
-        const element = todo[index];
+    for (let i = 0; i < todo.length; i++) {
+        const element = todo[i];
         document.getElementById('todo-tasks').innerHTML += generateTodoHTML(element);
+        id++
     }
-
     function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">
-        <span class="task-font" id="task">${element['title']}</span>
-        <div class="task-person" id="task-person">${element['responsibility']}</div>
+        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
+        <span class="task-font" id="task">${element['Titel']}</span>
+        <span>${element['Category']}</span>
+         <div>
+         <div>${element['Urgency']}</div>
+         <span>${element['Description']}</span>
+         <span>FR</span>
+         </div>
+         <span>${element['Due Date']}</span>
         </div>`;
     }
+
+    //<div class="task-person" id="task-person">${element['responsibility']}</div>
 }
 
-function showInProgress(){
-    let todo = tasks.filter(t => t['category'] == 'inprogress');
+function showInProgress() {
+    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'inprogress');
+    let id = 0;
 
-    for (let index = 0; index < todo.length; index++) {
-        const element = todo[index];
+    for (let i = 0; i < todo.length; i++) {
+        const element = todo[i];
         document.getElementById('inprogress-tasks').innerHTML += generateTodoHTML(element);
+        id++
     }
-
     function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">
-        <span class="task-font" id="task">${element['title']}</span>
-        <div class="task-person" id="task-person">${element['responsibility']}</div>
+        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
+        <span class="task-font" id="task">${element['Titel']}</span>
+        <span>${element['Category']}</span>
+         <div>
+         <div>${element['Urgency']}</div>
+         <span>${element['Description']}</span>
+         <span>FR</span>
+         </div>
+         <span>${element['Due Date']}</span>
         </div>`;
     }
 }
 
-function showTesting(){
-    let todo = tasks.filter(t => t['category'] == 'testing');
+function showTesting() {
+    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'testing');
+    let id = 0;
 
-    for (let index = 0; index < todo.length; index++) {
-        const element = todo[index];
+    for (let i = 0; i < todo.length; i++) {
+        const element = todo[i];
         document.getElementById('testing-tasks').innerHTML += generateTodoHTML(element);
+        id++
     }
-
     function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">
-        <span class="task-font" id="task">${element['title']}</span>
-        <div class="task-person" id="task-person">${element['responsibility']}</div>
+        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
+        <span class="task-font" id="task">${element['Titel']}</span>
+        <span>${element['Category']}</span>
+         <div>
+         <div>${element['Urgency']}</div>
+         <span>${element['Description']}</span>
+         <span>FR</span>
+         </div>
+         <span>${element['Due Date']}</span>
         </div>`;
     }
 }
 
-function showDone(){
-    let todo = tasks.filter(t => t['category'] == 'done');
-
-    for (let index = 0; index < todo.length; index++) {
-        const element = todo[index];
+function showDone() {
+    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'done');
+    let id = 0;
+    
+    for (let i = 0; i < todo.length; i++) {
+        const element = todo[i];
         document.getElementById('done-tasks').innerHTML += generateTodoHTML(element);
+        id++
     }
-
     function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${element['id']})">
-        <span class="task-font" id="task">${element['title']}</span>
-        <div class="task-person" id="task-person">${element['responsibility']}</div>
+        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
+        <span class="task-font" id="task">${element['Titel']}</span>
+        <span>${element['Category']}</span>
+         <div>
+         <div>${element['Urgency']}</div>
+         <span>${element['Description']}</span>
+         <span>FR</span>
+         </div>
+         <span>${element['Due Date']}</span>
         </div>`;
     }
 }
 
-function startDragging(id){
+
+function startDragging(id) {
     currentDraggedElement = id;
 }
 
 function allowDrop(ev) {
     ev.preventDefault();
-    
+
 }
 
-function moveTo(category){
-    tasks[currentDraggedElement]['category'] = category;
-    updateHTML();    
+function moveTo(Taskbox) {
+    AllTasksAsJSON[currentDraggedElement]['Taskbox'] = Taskbox;
+    updateHTML();
 }
 
-function highlightToDo(){
+function highlightToDo() {
     document.getElementById('todo-tasks').classList.add('bg-todo-highlight');
 }
 
-function removeHighlightToDo(){
+function removeHighlightToDo() {
     document.getElementById('todo-tasks').classList.remove('bg-todo-highlight');
 }
 
-function highlightInProgress(){
+function highlightInProgress() {
     document.getElementById('inprogress-tasks').classList.add('bg-progress-highlight');
 }
 
-function removeHighlightInProgress(){
+function removeHighlightInProgress() {
     document.getElementById('inprogress-tasks').classList.remove('bg-progress-highlight');
 }
 
-function highlightTesting(){
+function highlightTesting() {
     document.getElementById('testing-tasks').classList.add('bg-testing-highlight');
 }
 
-function removeHighlightTesting(){
+function removeHighlightTesting() {
     document.getElementById('testing-tasks').classList.remove('bg-testing-highlight');
 }
 
-function highlightDone(){
+function highlightDone() {
     document.getElementById('done-tasks').classList.add('bg-done-highlight');
 }
 
-function removeHighlightDone(){
+function removeHighlightDone() {
     document.getElementById('done-tasks').classList.remove('bg-done-highlight');
 }
 

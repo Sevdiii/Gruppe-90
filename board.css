@@ -2,7 +2,7 @@ body {
     margin: 0;
     background-image: url('img/board-bg.jpg');
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.8);
     background-blend-mode: color;
 }
 
