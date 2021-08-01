@@ -1,14 +1,15 @@
 let currentDraggedElement;
 let AllTasksAsJSON;
 
-function updateHTML() {
-    includeHTML();
+function updateBoardHTML() {
     clearHTML();
-    loadAllTasks();
     showTodos();
     showInProgress();
     showTesting();
     showDone();
+    getUpperLetters();
+    getCategory();
+    checkUrgency();
     removeHighlightDone();
     removeHighlightInProgress();
     removeHighlightTesting();
@@ -30,94 +31,81 @@ function loadAllTasks() {
 
 function showTodos() {
     let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'todo');
-    let id = 0;
 
     for (let i = 0; i < todo.length; i++) {
         const element = todo[i];
-        document.getElementById('todo-tasks').innerHTML += generateTodoHTML(element);
-        id++
-    }
-    function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
-        <span class="task-font" id="task">${element['Titel']}</span>
-        <span>${element['Category']}</span>
-         <div>
-         <div>${element['Urgency']}</div>
-         <span>${element['Description']}</span>
-         <span>FR</span>
+
+        document.getElementById('todo-tasks').innerHTML += `
+        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
+          <span id="category${element['ID']}" class="category">${element['Category']}</span>
+          <div id="urgency${element['ID']}" class="urgency"></div>
+          <span class="tasktitle"><b>${element['Titel']}</b></span>
+          <span class="taskmiddle">${element['Decription']}</span>
+         <div class="lowertask">
+          <span class="name">${element['Name']}</span>
+          <span class="date">${element['DueDate']}</span>
          </div>
-         <span>${element['Due Date']}</span>
         </div>`;
     }
-
+    
     //<div class="task-person" id="task-person">${element['responsibility']}</div>
 }
 
 function showInProgress() {
-    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'inprogress');
-    let id = 0;
+    let inprogress = AllTasksAsJSON.filter(t => t['Taskbox'] == 'inprogress');
 
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        document.getElementById('inprogress-tasks').innerHTML += generateTodoHTML(element);
-        id++
-    }
-    function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
-        <span class="task-font" id="task">${element['Titel']}</span>
-        <span>${element['Category']}</span>
-         <div>
-         <div>${element['Urgency']}</div>
-         <span>${element['Description']}</span>
-         <span>FR</span>
+
+    for (let i = 0; i < inprogress.length; i++) {
+        const element = inprogress[i];
+        document.getElementById('inprogress-tasks').innerHTML +=
+        `
+        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
+          <span id="category${element['ID']}" class="category">${element['Category']}</span>
+          <div id="urgency${element['ID']}" class="urgency"></div>
+          <span class="tasktitle"><b>${element['Titel']}</b></span>
+          <span class="taskmiddle">${element['Decription']}</span>
+         <div class="lowertask">
+          <span class="name">${element['Name']}</span>
+          <span class="date">${element['DueDate']}</span>
          </div>
-         <span>${element['Due Date']}</span>
         </div>`;
-    }
+    } 
 }
 
 function showTesting() {
-    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'testing');
-    let id = 0;
+    let testing = AllTasksAsJSON.filter(t => t['Taskbox'] == 'testing');
 
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        document.getElementById('testing-tasks').innerHTML += generateTodoHTML(element);
-        id++
-    }
-    function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
-        <span class="task-font" id="task">${element['Titel']}</span>
-        <span>${element['Category']}</span>
-         <div>
-         <div>${element['Urgency']}</div>
-         <span>${element['Description']}</span>
-         <span>FR</span>
+    for (let i = 0; i < testing.length; i++) {
+        const element = testing[i];
+        document.getElementById('testing-tasks').innerHTML += `
+        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
+          <span id="category${element['ID']}" class="category">${element['Category']}</span>
+          <div id="urgency${element['ID']}" class="urgency"></div>
+          <span class="tasktitle"><b>${element['Titel']}</b></span>
+          <span class="taskmiddle">${element['Decription']}</span>
+         <div class="lowertask">
+          <span class="name">${element['Name']}</span>
+          <span class="date">${element['DueDate']}</span>
          </div>
-         <span>${element['Due Date']}</span>
         </div>`;
     }
 }
 
 function showDone() {
-    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'done');
-    let id = 0;
-    
-    for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
-        document.getElementById('done-tasks').innerHTML += generateTodoHTML(element);
-        id++
-    }
-    function generateTodoHTML(element) {
-        return `<div class="task" draggable="true" ondragstart="startDragging(${id})">
-        <span class="task-font" id="task">${element['Titel']}</span>
-        <span>${element['Category']}</span>
-         <div>
-         <div>${element['Urgency']}</div>
-         <span>${element['Description']}</span>
-         <span>FR</span>
+    let done = AllTasksAsJSON.filter(t => t['Taskbox'] == 'done');
+
+    for (let i = 0; i < done.length; i++) {
+        const element = done[i];
+        document.getElementById('done-tasks').innerHTML += `
+        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
+          <span id="category${element['ID']}" class="category">${element['Category']}</span>
+          <div id="urgency${element['ID']}" class="urgency"></div>
+          <span class="tasktitle"><b>${element['Titel']}</b></span>
+          <span class="taskmiddle">${element['Decription']}</span>
+         <div class="lowertask">
+          <span class="name">${element['Name']}</span>
+          <span class="date">${element['DueDate']}</span>
          </div>
-         <span>${element['Due Date']}</span>
         </div>`;
     }
 }
@@ -134,7 +122,8 @@ function allowDrop(ev) {
 
 function moveTo(Taskbox) {
     AllTasksAsJSON[currentDraggedElement]['Taskbox'] = Taskbox;
-    updateHTML();
+    localStorage.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+    updateBoardHTML();
 }
 
 function highlightToDo() {
@@ -169,3 +158,41 @@ function removeHighlightDone() {
     document.getElementById('done-tasks').classList.remove('bg-done-highlight');
 }
 
+function getUpperLetters() {
+    for (let i = 0; i < AllTasksAsJSON.length; i++) {
+
+        let names = AllTasksAsJSON[i]['Name'];
+        let Uppercaseletters = names.replace(/[a-z,ü,ö,ä]/g, '');
+        Uppercaseletters = Uppercaseletters.replace(' ', '');
+        AllTasksAsJSON[i]['Name'] = Uppercaseletters;
+        localStorage.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+        console.log(Uppercaseletters)
+        
+    }
+}
+
+function getCategory() {
+    for (let i = 0; i < AllTasksAsJSON.length; i++) {
+
+        let categories = AllTasksAsJSON[i]['Category'];
+        let Uppercaseletters = categories.replace(/[a-z]/g, '');
+        AllTasksAsJSON[i]['Category'] = Uppercaseletters;
+        localStorage.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+        console.log(Uppercaseletters)
+
+    }
+
+}
+
+function checkUrgency() {
+    for (let i = 0; i < AllTasksAsJSON.length; i++) {
+
+        if (AllTasksAsJSON[i]['Urgency'] == 'High') {
+            document.getElementById(`urgency${i}`).classList.add('red');
+        } else if (AllTasksAsJSON[i]['Urgency'] == 'Medium') {
+            document.getElementById(`urgency${i}`).classList.add('yellow');
+        } else if (AllTasksAsJSON[i]['Urgency'] == 'Low') {
+            document.getElementById(`urgency${i}`).classList.add('green');
+        }
+    }
+}
