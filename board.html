@@ -22,7 +22,7 @@
     <title>Board</title>
 </head>
 
-<body onload=" init() , updateHTML()">
+<body onload="includeHTML(), loadAllTasks(), updateBoardHTML(),init()">
     <div w3-include-html="templates/header.html"></div>
     <div class="board-main">
 
@@ -55,20 +55,6 @@
         </div>
     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
@@ -77,5 +63,4 @@
 
     <script src="./firebase.js"></script>
 </body>
-
 </html>

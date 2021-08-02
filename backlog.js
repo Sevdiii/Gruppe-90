@@ -15,6 +15,7 @@ function backlog() {
 
         <p  class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
+        <a id="splice">X</a>
         </div>
 
     `
