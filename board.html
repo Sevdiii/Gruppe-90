@@ -8,41 +8,59 @@
     <link rel="stylesheet" href="templates/header.css">
     <link rel="stylesheet" href="board.css">
     <script src="templates/template.js"></script>
-    <script src="board.js"></script>
+    <script src="./board.js"></script>
+    <script src="./join.js"></script>
+    <script src="./mini_backend.js"></script>
+
+    <script>
+        setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
+        async function init() {
+            await downloadFromServer();
+            AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
+        }
+    </script>
     <title>Board</title>
 </head>
 
-<body onload="includeHTML(), loadAllTasks(), updateBoardHTML()">
+<body onload="includeHTML(), loadAllTasks(), updateBoardHTML(),init()">
     <div w3-include-html="templates/header.html"></div>
     <div class="board-main">
 
         <div class="task-main">
             <span class="task-header">TO DO</span>
             <div id="todo-tasks" class="taskcontainer bg-todo" ondragleave="removeHighlightToDo('todo-tasks')" ondrop="moveTo('todo')" ondragover="allowDrop(event); highlightToDo('todo-tasks')">
-                
+
             </div>
         </div>
 
         <div class="task-main">
             <span class="task-header">IN PROGRESS</span>
-            <div id="inprogress-tasks" class="taskcontainer bg-progress" ondragleave="removeHighlightInProgress('inprogress-tasks')" ondrop="moveTo('inprogress')" ondragover="allowDrop(event); highlightInProgress('inprogress-tasks')"> 
-                
+            <div id="inprogress-tasks" class="taskcontainer bg-progress" ondragleave="removeHighlightInProgress('inprogress-tasks')" ondrop="moveTo('inprogress')" ondragover="allowDrop(event); highlightInProgress('inprogress-tasks')">
+
             </div>
         </div>
 
         <div class="task-main">
             <span class="task-header">TESTING</span>
             <div id="testing-tasks" class="taskcontainer bg-testing" ondragleave="removeHighlightTesting('testing-tasks')" ondrop="moveTo('testing')" ondragover="allowDrop(event); highlightTesting('testing-tasks')">
-                
+
             </div>
         </div>
 
         <div class="task-main">
             <span class="task-header">DONE</span>
             <div id="done-tasks" class="taskcontainer bg-done" ondragleave="removeHighlightDone('done-tasks')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDone('done-tasks')">
-            
+
             </div>
         </div>
     </div>
+
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+
+    <script src="./firebase-ui.js"></script>
+
+    <script src="./firebase.js"></script>
 </body>
 </html>

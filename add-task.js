@@ -1,6 +1,6 @@
 let id = 0;
 
-function createTicket() {
+async function createTicket() {
 
 
     let name = document.getElementById('name');
@@ -25,7 +25,7 @@ function createTicket() {
     id++;
     AllTickets.push(TICKET); // Innere JSON wird in den leeren globales JSON gepusht
     let AllTicketsAsString = JSON.stringify(AllTickets); // Wandelt JSON in einem Text
-    localStorage.setItem('AllTickets', AllTicketsAsString); // speichert Text im LocalStorage
+    await backend.setItem('AllTickets', AllTicketsAsString); // speichert Text im LocalStorage
     console.log(AllTickets);
 
     name.value = ''; //value leersetzen
