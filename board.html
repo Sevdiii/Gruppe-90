@@ -8,21 +8,25 @@
     <link rel="stylesheet" href="templates/header.css">
     <link rel="stylesheet" href="board.css">
     <script src="templates/template.js"></script>
+    <script src="/mini_backend.js"></script>
+    <script src="/backlog.js"></script>
     <script src="./board.js"></script>
     <script src="./join.js"></script>
-    <script src="./mini_backend.js"></script>
+    
 
     <script>
         setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
         async function init() {
             await downloadFromServer();
             AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
+            loadAllTickets()
+            updateBoardHTML();
         }
     </script>
     <title>Board</title>
 </head>
 
-<body onload="includeHTML(), loadAllTasks(), updateBoardHTML(),init()">
+<body onload="includeHTML(), loadAllTasks(), init()">
     <div w3-include-html="templates/header.html"></div>
     <div class="board-main">
 

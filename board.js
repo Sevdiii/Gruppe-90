@@ -25,7 +25,7 @@ function clearHTML() {
 }
 
 function loadAllTasks() {
-    let AllTicketsAsString = localStorage.getItem('AllTickets');
+    let AllTicketsAsString = backend.getItem('AllTickets');
     AllTasksAsJSON = JSON.parse(AllTicketsAsString);
 }
 
@@ -122,7 +122,7 @@ function allowDrop(ev) {
 
 function moveTo(Taskbox) {
     AllTasksAsJSON[currentDraggedElement]['Taskbox'] = Taskbox;
-    localStorage.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+    backend.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
     updateBoardHTML();
 }
 
@@ -165,7 +165,7 @@ function getUpperLetters() {
         let Uppercaseletters = names.replace(/[a-z,ü,ö,ä]/g, '');
         Uppercaseletters = Uppercaseletters.replace(' ', '');
         AllTasksAsJSON[i]['Name'] = Uppercaseletters;
-        localStorage.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+        backend.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
         console.log(Uppercaseletters)
         
     }
@@ -177,7 +177,7 @@ function getCategory() {
         let categories = AllTasksAsJSON[i]['Category'];
         let Uppercaseletters = categories.replace(/[a-z]/g, '');
         AllTasksAsJSON[i]['Category'] = Uppercaseletters;
-        localStorage.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+        backend.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
         console.log(Uppercaseletters)
 
     }
