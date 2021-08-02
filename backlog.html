@@ -10,15 +10,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <script src="./templates/template.js"></script>
+    <script src="./mini_backend.js"></script>
     <script src="./join.js"></script>
     <script src="./backlog.js"></script>
-    <script src="./mini_backend.js"></script>
+
 
     <script>
         setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
         async function init() {
             await downloadFromServer();
             AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
+            backlog();
         }
     </script>
 
@@ -26,7 +28,7 @@
     <title>Join</title>
 </head>
 
-<body onload=" init(), includeHTML(), backlog()">
+<body onload=" init(), includeHTML()">
 
     <div w3-include-html="templates/header.html"></div>
 
