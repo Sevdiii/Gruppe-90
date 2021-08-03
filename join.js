@@ -8,6 +8,10 @@ function loadAllTickets() {
 
 }
 
-function DeleteTickets() {
-    backend.deleteItem(key);
+
+function DeleteTickets(index) {
+    AllTickets.splice(index, i);
+    backend.setItem(
+        "tickets", AllTickets
+    );
 }

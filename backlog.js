@@ -1,3 +1,5 @@
+var i;
+
 function backlog() {
     for (let i = 0; i < AllTickets.length; i++) {
         document.getElementById('backlog').innerHTML += `
@@ -15,10 +17,17 @@ function backlog() {
 
         <p  class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
-        <a id="splice">X</a>
+        <a onclick="DeleteTickets()" id="splice">X</a>
         </div>
 
     `
 
     };
+
+}
+
+
+function DeleteTickets(index) {
+    AllTickets.splice(index, i);
+    backend.setItem('AllTickets', AllTicketsAsString);
 }
