@@ -1,3 +1,5 @@
+var i;
+
 function backlog() {
     for (let i = 0; i < AllTickets.length; i++) {
         document.getElementById('backlog').innerHTML += `
@@ -15,9 +17,25 @@ function backlog() {
 
         <p  class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
+        <a onclick="DeleteArray(${i})" id="splice">X</a>
         </div>
 
     `
 
     };
+
+}
+
+
+
+function DeleteArray(i) {
+    AllTickets = JSON.parse(backend.getItem("AllTickets"));
+    AllTickets.splice(i, 1);
+    backend.setItem('AllTickets', JSON.stringify(AllTickets));
+    if (window.location.href.indexOf('backlog') > -1) {
+        document.getElementById("backlog").innerHTML = "";
+    }
+    if (window.location.href.indexOf("allboard") > -1) {
+
+    }
 }
