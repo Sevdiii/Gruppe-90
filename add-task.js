@@ -35,7 +35,6 @@ async function createTicket() {
     urgency.value = '';
     decription.value = '';
 
-
 }
 
 

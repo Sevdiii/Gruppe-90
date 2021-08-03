@@ -7,9 +7,9 @@ function updateBoardHTML() {
     showInProgress();
     showTesting();
     showDone();
+    checkUrgency();
     getUpperLetters();
     getCategory();
-    checkUrgency();
     removeHighlightDone();
     removeHighlightInProgress();
     removeHighlightTesting();
