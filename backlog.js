@@ -38,4 +38,5 @@ function DeleteArray(i) {
     if (window.location.href.indexOf("allboard") > -1) {
 
     }
+    backlog();
 }
