@@ -24,7 +24,7 @@
 
 <body onload="includeHTML(), loadAllTasks(), updateBoardHTML(),init()">
     <div w3-include-html="templates/header.html"></div>
-    <div class="board-main">
+    <div id="allboard" class="board-main">
 
         <div class="task-main">
             <span class="task-header">TO DO</span>
@@ -63,4 +63,5 @@
 
     <script src="./firebase.js"></script>
 </body>
+
 </html>
