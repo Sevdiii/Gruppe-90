@@ -33,17 +33,17 @@ function showTodos() {
     let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'todo');
 
     for (let i = 0; i < todo.length; i++) {
-        const element = todo[i];
+       // const element = todo[i];
 
         document.getElementById('todo-tasks').innerHTML += `
-        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
-          <span id="category${element['ID']}" class="category">${element['Category']}</span>
-          <div id="urgency${element['ID']}" class="urgency"></div>
-          <span class="tasktitle"><b>${element['Titel']}</b></span>
-          <span class="taskmiddle">${element['Decription']}</span>
+        <div class="task" draggable="true" ondragstart="startDragging(${i})">
+          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
+          <div id="urgency${i}" class="urgency"></div>
+          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
+          <span class="taskmiddle">${AllTickets[i].Decription}</span>
          <div class="lowertask">
-          <span class="name">${element['Name']}</span>
-          <span class="date">${element['DueDate']}</span>
+          <span class="name">${AllTickets[i].Name}</span>
+          <span class="date">${AllTickets[i].DueDate}</span>
          </div>
         </div>`;
     }
@@ -56,17 +56,17 @@ function showInProgress() {
 
 
     for (let i = 0; i < inprogress.length; i++) {
-        const element = inprogress[i];
+        //const element = inprogress[i];
         document.getElementById('inprogress-tasks').innerHTML +=
         `
-        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
-          <span id="category${element['ID']}" class="category">${element['Category']}</span>
-          <div id="urgency${element['ID']}" class="urgency"></div>
-          <span class="tasktitle"><b>${element['Titel']}</b></span>
-          <span class="taskmiddle">${element['Decription']}</span>
+        <div class="task" draggable="true" ondragstart="startDragging(${i})">
+          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
+          <div id="urgency${i}" class="urgency"></div>
+          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
+          <span class="taskmiddle">${AllTickets[i].Decription}</span>
          <div class="lowertask">
-          <span class="name">${element['Name']}</span>
-          <span class="date">${element['DueDate']}</span>
+          <span class="name">${AllTickets[i].Name}</span>
+          <span class="date">${AllTickets[i].DueDate}</span>
          </div>
         </div>`;
     } 
@@ -76,16 +76,16 @@ function showTesting() {
     let testing = AllTasksAsJSON.filter(t => t['Taskbox'] == 'testing');
 
     for (let i = 0; i < testing.length; i++) {
-        const element = testing[i];
+        //const element = testing[i];
         document.getElementById('testing-tasks').innerHTML += `
-        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
-          <span id="category${element['ID']}" class="category">${element['Category']}</span>
-          <div id="urgency${element['ID']}" class="urgency"></div>
-          <span class="tasktitle"><b>${element['Titel']}</b></span>
-          <span class="taskmiddle">${element['Decription']}</span>
+        <div class="task" draggable="true" ondragstart="startDragging(${i})">
+          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
+          <div id="urgency${i}" class="urgency"></div>
+          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
+          <span class="taskmiddle">${AllTickets[i].Decription}</span>
          <div class="lowertask">
-          <span class="name">${element['Name']}</span>
-          <span class="date">${element['DueDate']}</span>
+          <span class="name">${AllTickets[i].Name}</span>
+          <span class="date">${AllTickets[i].DueDate}</span>
          </div>
         </div>`;
     }
@@ -95,16 +95,16 @@ function showDone() {
     let done = AllTasksAsJSON.filter(t => t['Taskbox'] == 'done');
 
     for (let i = 0; i < done.length; i++) {
-        const element = done[i];
+        //const element = done[i];
         document.getElementById('done-tasks').innerHTML += `
-        <div class="task" draggable="true" ondragstart="startDragging(${element['ID']})">
-          <span id="category${element['ID']}" class="category">${element['Category']}</span>
-          <div id="urgency${element['ID']}" class="urgency"></div>
-          <span class="tasktitle"><b>${element['Titel']}</b></span>
-          <span class="taskmiddle">${element['Decription']}</span>
+        <div class="task" draggable="true" ondragstart="startDragging(${i})">
+          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
+          <div id="urgency${i}" class="urgency"></div>
+          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
+          <span class="taskmiddle">${AllTickets[i].Decription}</span>
          <div class="lowertask">
-          <span class="name">${element['Name']}</span>
-          <span class="date">${element['DueDate']}</span>
+          <span class="name">${AllTickets[i].Name}</span>
+          <span class="date">${AllTickets[i].DueDate}</span>
          </div>
         </div>`;
     }

@@ -19,14 +19,15 @@
         async function init() {
             await downloadFromServer();
             AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
-            loadAllTickets()
+            loadAllTickets();
+            loadAllTasks()
             updateBoardHTML();
         }
     </script>
     <title>Board</title>
 </head>
 
-<body onload="includeHTML(), loadAllTasks(), init()">
+<body onload="includeHTML(), init()">
     <div w3-include-html="templates/header.html"></div>
     <div class="board-main">
 
