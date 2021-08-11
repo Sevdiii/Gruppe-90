@@ -7,11 +7,3 @@ function loadAllTickets() {
     console.log('loadedAllTickets', AllTickets);
 
 }
-
-
-function DeleteTickets(index) {
-    AllTickets.splice(index, i);
-    backend.setItem(
-        "tickets", AllTickets
-    );
-}
