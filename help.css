@@ -12,12 +12,35 @@
 }
 
 .container-img {
+    padding-top: 64px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .container-img img {
-    width: 40%;
-    height: 600px;
+    height: 500px;
+}
+
+.description {}
+
+.description span {
+    color: white;
+}
+
+.backlog {
+    object-fit: contain;
+    width: 1200px;
+    height: 200px;
+}
+
+.caption {
+    padding-top: 64px;
+}
+
+.container-img2 {
+    padding-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
