@@ -8,19 +8,33 @@ body {
 }
 
 .first-container-topic {
-    margin-left: 250px;
+    text-align: center;
 }
 
 .first-container-topic {
     color: white;
 }
 
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 64px;
+}
+
+input {
+    background-color: white;
+}
+
+h2 {
+    color: white;
+}
+
 .main-container {
-    margin-left: 250px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(88, 86, 86);
+    background-color: rgba(85, 84, 84, 0.822);
     border-radius: 25px;
     height: 50vh;
     width: 80vh;

@@ -20,6 +20,7 @@ body {
 .caption {
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .caption p {
@@ -27,6 +28,7 @@ body {
 }
 
 .caption2 {
+    padding-top: 64px;
     display: flex;
     justify-content: space-between;
     color: rgb(255, 255, 255);
@@ -35,7 +37,8 @@ body {
 .content {
     display: flex;
     align-items: center;
-    background-color: rgb(236, 236, 236);
+    background-color: rgb(255, 255, 255);
+    /* background-color: rgb(236, 236, 236); */
     border-radius: 12px;
     justify-content: space-between;
     margin-bottom: 12px;
@@ -99,6 +102,15 @@ h1 {
 
 .assigned {
     display: flex;
+}
+
+.trash {
+    cursor: pointer;
+}
+
+.trash img {
+    height: 15px;
+    width: 15px;
 }
 
 @media(max-width: 1000px) {
