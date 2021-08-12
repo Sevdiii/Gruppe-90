@@ -46,3 +46,8 @@
 hr {
     margin-top: 100px;
 }
+
+.board {
+    width: 70%;
+    padding-bottom: 72px;
+}
