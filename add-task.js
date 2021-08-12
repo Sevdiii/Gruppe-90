@@ -1,5 +1,3 @@
-let id = 0;
-
 async function createTicket() {
 
 
@@ -18,11 +16,10 @@ async function createTicket() {
         'Urgency': urgency.value,
         'Decription': decription.value,
         'Taskbox': 'todo',
-        'ID': id,
+        'ID': getRandomID(AllTickets),
     };
 
 
-    id++;
     AllTickets.push(TICKET); // Innere JSON wird in den leeren globales JSON gepusht
     let AllTicketsAsString = JSON.stringify(AllTickets); // Wandelt JSON in einem Text
     await backend.setItem('AllTickets', AllTicketsAsString); // speichert Text im LocalStorage

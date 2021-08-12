@@ -1,19 +1,18 @@
 let currentDraggedElement;
-let AllTasksAsJSON;
 
 function updateBoardHTML() {
     clearHTML();
-    showTodos();
-    showInProgress();
-    showTesting();
-    showDone();
-    checkUrgency();
+    showTaskbox('todo');
+    showTaskbox('inprogress');
+    showTaskbox('testing');
+    showTaskbox('done');
     getUpperLetters();
     getCategory();
-    removeHighlightDone();
-    removeHighlightInProgress();
-    removeHighlightTesting();
-    removeHighlightToDo();
+    checkUrgency();
+    removeHighlightTaskbox('todo');
+    removeHighlightTaskbox('inprogress');
+    removeHighlightTaskbox('testing');
+    removeHighlightTaskbox('done');
 
 }
 
@@ -24,87 +23,20 @@ function clearHTML() {
     document.getElementById('done-tasks').innerHTML = '';
 }
 
-function loadAllTasks() {
-    let AllTicketsAsString = backend.getItem('AllTickets');
-    AllTasksAsJSON = JSON.parse(AllTicketsAsString);
-}
+function showTaskbox(taskBox) {
+    let boxes = AllTickets.filter(t => t['Taskbox'] == taskBox)
 
-function showTodos() {
-    let todo = AllTasksAsJSON.filter(t => t['Taskbox'] == 'todo');
-
-    for (let i = 0; i < todo.length; i++) {
-       // const element = todo[i];
-
-        document.getElementById('todo-tasks').innerHTML += `
-        <div class="task" draggable="true" ondragstart="startDragging(${i})">
-          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
-          <div id="urgency${i}" class="urgency"></div>
-          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
-          <span class="taskmiddle">${AllTickets[i].Decription}</span>
+    for (let i = 0; i < boxes.length; i++) {
+        document.getElementById(taskBox+'-tasks').innerHTML += `
+        <div class="task" draggable="true" ondragstart="startDragging(${boxes[i]['ID']})">
+          <span id="category${i}" class="category">${boxes[i].Category}</span>
+          <div id="urgency${boxes[i]['ID']}" class="urgency"></div>
+          <span class="tasktitle"><b>${boxes[i].Titel}</b></span>
+          <span class="taskmiddle">${boxes[i].Decription}</span>
          <div class="lowertask">
-          <span class="name">${AllTickets[i].Name}</span>
-          <span class="date">${AllTickets[i].DueDate}</span>
-         </div>
-        </div>`;
-    }
-    
-    //<div class="task-person" id="task-person">${element['responsibility']}</div>
-}
-
-function showInProgress() {
-    let inprogress = AllTasksAsJSON.filter(t => t['Taskbox'] == 'inprogress');
-
-
-    for (let i = 0; i < inprogress.length; i++) {
-        //const element = inprogress[i];
-        document.getElementById('inprogress-tasks').innerHTML +=
-        `
-        <div class="task" draggable="true" ondragstart="startDragging(${i})">
-          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
-          <div id="urgency${i}" class="urgency"></div>
-          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
-          <span class="taskmiddle">${AllTickets[i].Decription}</span>
-         <div class="lowertask">
-          <span class="name">${AllTickets[i].Name}</span>
-          <span class="date">${AllTickets[i].DueDate}</span>
-         </div>
-        </div>`;
-    } 
-}
-
-function showTesting() {
-    let testing = AllTasksAsJSON.filter(t => t['Taskbox'] == 'testing');
-
-    for (let i = 0; i < testing.length; i++) {
-        //const element = testing[i];
-        document.getElementById('testing-tasks').innerHTML += `
-        <div class="task" draggable="true" ondragstart="startDragging(${i})">
-          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
-          <div id="urgency${i}" class="urgency"></div>
-          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
-          <span class="taskmiddle">${AllTickets[i].Decription}</span>
-         <div class="lowertask">
-          <span class="name">${AllTickets[i].Name}</span>
-          <span class="date">${AllTickets[i].DueDate}</span>
-         </div>
-        </div>`;
-    }
-}
-
-function showDone() {
-    let done = AllTasksAsJSON.filter(t => t['Taskbox'] == 'done');
-
-    for (let i = 0; i < done.length; i++) {
-        //const element = done[i];
-        document.getElementById('done-tasks').innerHTML += `
-        <div class="task" draggable="true" ondragstart="startDragging(${i})">
-          <span id="category${i}" class="category">${AllTickets[i].Category}</span>
-          <div id="urgency${i}" class="urgency"></div>
-          <span class="tasktitle"><b>${AllTickets[i].Titel}</b></span>
-          <span class="taskmiddle">${AllTickets[i].Decription}</span>
-         <div class="lowertask">
-          <span class="name">${AllTickets[i].Name}</span>
-          <span class="date">${AllTickets[i].DueDate}</span>
+          <span class="name">${boxes[i].Name}</span>
+          <div> <img onclick="deleteTicket(${boxes[i]['ID']})" class="trash" src="img/trash.png"></div>
+          <span class="date">${boxes[i].DueDate}</span>
          </div>
         </div>`;
     }
@@ -121,63 +53,42 @@ function allowDrop(ev) {
 }
 
 function moveTo(Taskbox) {
-    AllTasksAsJSON[currentDraggedElement]['Taskbox'] = Taskbox;
-    backend.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+    let currentDraggedTask = AllTickets.find(ticket => ticket.ID == currentDraggedElement);
+    currentDraggedTask['Taskbox'] = Taskbox;
+    backend.setItem('AllTickets', JSON.stringify(AllTickets));
     updateBoardHTML();
 }
 
-function highlightToDo() {
-    document.getElementById('todo-tasks').classList.add('bg-todo-highlight');
+function highlightTaskbox(taskBox){
+    //document.getElementById(taskBox+'-tasks').classList.add('bg-'+taskBox+'-hightlight');
+    document.getElementById(taskBox+'-tasks').classList.add('bg-'+taskBox+'-highlight');
 }
 
-function removeHighlightToDo() {
-    document.getElementById('todo-tasks').classList.remove('bg-todo-highlight');
-}
-
-function highlightInProgress() {
-    document.getElementById('inprogress-tasks').classList.add('bg-progress-highlight');
-}
-
-function removeHighlightInProgress() {
-    document.getElementById('inprogress-tasks').classList.remove('bg-progress-highlight');
-}
-
-function highlightTesting() {
-    document.getElementById('testing-tasks').classList.add('bg-testing-highlight');
-}
-
-function removeHighlightTesting() {
-    document.getElementById('testing-tasks').classList.remove('bg-testing-highlight');
-}
-
-function highlightDone() {
-    document.getElementById('done-tasks').classList.add('bg-done-highlight');
-}
-
-function removeHighlightDone() {
-    document.getElementById('done-tasks').classList.remove('bg-done-highlight');
+function removeHighlightTaskbox(taskBox){
+    //document.getElementById(taskBox+'-tasks').classList.remove('bg-'+taskBox+'-hightlight');
+    document.getElementById(taskBox+'-tasks').classList.remove('bg-'+taskBox+'-highlight');
 }
 
 function getUpperLetters() {
-    for (let i = 0; i < AllTasksAsJSON.length; i++) {
+    for (let i = 0; i < AllTickets.length; i++) {
 
-        let names = AllTasksAsJSON[i]['Name'];
+        let names = AllTickets[i]['Name'];
         let Uppercaseletters = names.replace(/[a-z,ü,ö,ä]/g, '');
         Uppercaseletters = Uppercaseletters.replace(' ', '');
-        AllTasksAsJSON[i]['Name'] = Uppercaseletters;
-        backend.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+        AllTickets[i]['Name'] = Uppercaseletters;
+        backend.setItem('AllTickets', JSON.stringify(AllTickets));
         console.log(Uppercaseletters)
-        
+
     }
 }
 
 function getCategory() {
-    for (let i = 0; i < AllTasksAsJSON.length; i++) {
+    for (let i = 0; i < AllTickets.length; i++) {
 
-        let categories = AllTasksAsJSON[i]['Category'];
+        let categories = AllTickets[i]['Category'];
         let Uppercaseletters = categories.replace(/[a-z]/g, '');
-        AllTasksAsJSON[i]['Category'] = Uppercaseletters;
-        backend.setItem('AllTickets', JSON.stringify(AllTasksAsJSON));
+        AllTickets[i]['Category'] = Uppercaseletters;
+        backend.setItem('AllTickets', JSON.stringify(AllTickets));
         console.log(Uppercaseletters)
 
     }
@@ -185,14 +96,39 @@ function getCategory() {
 }
 
 function checkUrgency() {
-    for (let i = 0; i < AllTasksAsJSON.length; i++) {
-
-        if (AllTasksAsJSON[i]['Urgency'] == 'High') {
-            document.getElementById(`urgency${i}`).classList.add('red');
-        } else if (AllTasksAsJSON[i]['Urgency'] == 'Medium') {
-            document.getElementById(`urgency${i}`).classList.add('yellow');
-        } else if (AllTasksAsJSON[i]['Urgency'] == 'Low') {
-            document.getElementById(`urgency${i}`).classList.add('green');
+    
+    for (let i = 0; i < AllTickets.length; i++) {
+        let urgency = AllTickets[i]['Urgency'];
+        
+        if (urgency == 'High') {
+            document.getElementById(`urgency${AllTickets[i]['ID']}`).classList.add('red');
+          //  backend.setItem('AllTickets', JSON.stringify(AllTickets));
+        } else if (urgency == 'Medium') {
+            document.getElementById(`urgency${AllTickets[i]['ID']}`).classList.add('yellow');
+          //  backend.setItem('AllTickets', JSON.stringify(AllTickets));
         }
+        else if (urgency == 'Low') {
+            document.getElementById(`urgency${AllTickets[i]['ID']}`).classList.add('green');
+           // backend.setItem('AllTickets', JSON.stringify(AllTickets));
+        }
+        backend.setItem('AllTickets', JSON.stringify(AllTickets));
     }
+}
+
+function deleteTicket(id) {
+    AllTickets = JSON.parse(backend.getItem("AllTickets"));
+    let getID = AllTickets.findIndex(obj => obj.ID==id);
+    console.log(getID);
+    AllTickets.splice(getID, 1);
+    backend.setItem('AllTickets', JSON.stringify(AllTickets));
+    if (window.location.href.indexOf('board') > -1) {
+        document.getElementById('todo-tasks').innerHTML = '';
+        document.getElementById('inprogress-tasks').innerHTML = '';
+        document.getElementById('testing-tasks').innerHTML = '';
+        document.getElementById('done-tasks').innerHTML = '';
+    }
+    if (window.location.href.indexOf("allboard") > -1) {
+
+    }
+    updateBoardHTML();
 }

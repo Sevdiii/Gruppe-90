@@ -7,10 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="templates/header.css">
     <link rel="stylesheet" href="board.css">
-    <script src="templates/template.js"></script>
-    <script src="/mini_backend.js"></script>
-    <script src="/add-task.js"></script>
-    <script src="/backlog.js"></script>
+    <script src="./templates/template.js"></script>
+    <script src="./mini_backend.js"></script>
     <script src="./join.js"></script>
     <script src="./board.js"></script>
     
@@ -21,7 +19,6 @@
             await downloadFromServer();
             AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
             loadAllTickets();
-            loadAllTasks()
             updateBoardHTML();
         }
     </script>
@@ -34,28 +31,28 @@
 
         <div class="task-main">
             <span class="task-header">TO DO</span>
-            <div id="todo-tasks" class="taskcontainer bg-todo" ondragleave="removeHighlightToDo('todo-tasks')" ondrop="moveTo('todo')" ondragover="allowDrop(event); highlightToDo('todo-tasks')">
+            <div id="todo-tasks" class="taskcontainer bg-todo" ondragleave="removeHighlightTaskbox('todo')" ondrop="moveTo('todo')" ondragover="allowDrop(event); highlightTaskbox('todo')">
 
             </div>
         </div>
 
         <div class="task-main">
             <span class="task-header">IN PROGRESS</span>
-            <div id="inprogress-tasks" class="taskcontainer bg-progress" ondragleave="removeHighlightInProgress('inprogress-tasks')" ondrop="moveTo('inprogress')" ondragover="allowDrop(event); highlightInProgress('inprogress-tasks')">
+            <div id="inprogress-tasks" class="taskcontainer bg-inprogress" ondragleave="removeHighlightTaskbox('inprogress')" ondrop="moveTo('inprogress')" ondragover="allowDrop(event); highlightTaskbox('inprogress')">
 
             </div>
         </div>
 
         <div class="task-main">
             <span class="task-header">TESTING</span>
-            <div id="testing-tasks" class="taskcontainer bg-testing" ondragleave="removeHighlightTesting('testing-tasks')" ondrop="moveTo('testing')" ondragover="allowDrop(event); highlightTesting('testing-tasks')">
+            <div id="testing-tasks" class="taskcontainer bg-testing" ondragleave="removeHighlightTaskbox('testing')" ondrop="moveTo('testing')" ondragover="allowDrop(event); highlightTaskbox('testing')">
 
             </div>
         </div>
 
         <div class="task-main">
             <span class="task-header">DONE</span>
-            <div id="done-tasks" class="taskcontainer bg-done" ondragleave="removeHighlightDone('done-tasks')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightDone('done-tasks')">
+            <div id="done-tasks" class="taskcontainer bg-done" ondragleave="removeHighlightTaskbox('done')" ondrop="moveTo('done')" ondragover="allowDrop(event); highlightTaskbox('done')">
 
             </div>
         </div>

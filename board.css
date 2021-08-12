@@ -56,7 +56,7 @@ body {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
-.tasktitle{
+.tasktitle {
     display: flex;
     justify-content: center;
     padding-top: 16px;
@@ -64,13 +64,13 @@ body {
     text-align: center;
 }
 
-.lowertask{
+.lowertask {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.category{
+.category {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -82,7 +82,7 @@ body {
     height: 20px;
 }
 
-.urgency{
+.urgency {
     position: relative;
     left: 170px;
     width: 15px;
@@ -90,13 +90,13 @@ body {
     border-radius: 100%;
 }
 
-.name{
+.name {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     left: 155px;
-    top: 20px;
+    top: 50px;
     max-width: 20px;
     max-height: 20px;
     border-radius: 100%;
@@ -104,16 +104,17 @@ body {
     padding: 5px;
 }
 
-.date{
+.date {
     display: flex;
     justify-content: center;
     bottom: 32px;
 }
 
-.taskmiddle{
+.taskmiddle {
     display: flex;
     justify-content: center;
 }
+
 .task-person {
     display: flex;
     justify-content: center;
@@ -132,11 +133,11 @@ body {
     background-color: rgb(255, 150, 150);
 }
 
-.bg-progress {
+.bg-inprogress {
     background-color: rgba(255, 255, 150, 0.75);
 }
 
-.bg-progress-highlight {
+.bg-inprogress-highlight {
     background-color: rgb(255, 255, 150);
 }
 
@@ -156,14 +157,51 @@ body {
     background-color: rgb(201, 255, 150);
 }
 
-.red{
-    background-color: red;
+.red {
+    background-color: #ff0000;
 }
 
-.yellow{
-    background-color: yellow;
+.yellow {
+    background-color: #ffff00;
 }
 
-.green{
-    background-color: green;
+.green {
+    background-color: #008000;
+}
+
+.trash {
+    width: 28px;
+    height: 28px;
+    position: relative;
+    left: 100px;
+    top: 23px;
+    cursor: pointer;
+}
+
+@media(max-width:1200px) {
+    .taskcontainer {
+        width: 200px;
+        min-height: 600px;
+        box-shadow: black 10px 10px 1em;
+        border-radius: 30px;
+        padding: 16px;
+        margin-bottom: 100px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .board-main{
+        margin-left: 50px;
+    }
+}
+
+@media(max-width:800px) {
+    .board-main {
+        width: 100%;
+        min-height: 100vh;
+        padding-top: 100px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
 }
