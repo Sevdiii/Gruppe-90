@@ -1,0 +1,50 @@
+.container1 {
+    margin-left: 8%;
+    width: 89%;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: transparent;
+}
+
+.container1 h1 {
+    padding-top: 20px;
+    text-align: center;
+}
+
+.container-img {
+    padding-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.container-img img {
+    height: 500px;
+}
+
+.description {}
+
+.description span {
+    color: white;
+}
+
+.backlog {
+    object-fit: contain;
+    width: 1200px;
+    height: 200px;
+}
+
+.caption {
+    padding-top: 64px;
+}
+
+.container-img2 {
+    padding-top: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+hr {
+    margin-top: 100px;
+}

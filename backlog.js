@@ -17,7 +17,7 @@ function backlog() {
 
         <p  class="width17">${AllTickets[i].Category}</p>
         <p class="width30">${AllTickets[i].Decription}</p>
-        <a onclick="DeleteArray(${i})" id="splice">X</a>
+        <a class="trash" onclick="DeleteArray(${i})" id="splice"><img  src="./img/trash.png"></a>
         </div>
 
     `

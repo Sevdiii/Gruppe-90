@@ -1,0 +1,40 @@
+                   .sign-layout {
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       height: 100vh;
+                   }
+                   
+                   form {
+                       display: flex;
+                       flex-direction: column;
+                       margin: 0px 2.5% 0px 2.5%;
+                       padding: 50px;
+                       width: 600px;
+                       height: 500px;
+                       background-color: rgba(0, 0, 0, 0.93);
+                       border-top-left-radius: 15px;
+                       border-bottom-right-radius: 15px;
+                       border-top-right-radius: 100px;
+                       border-bottom-left-radius: 100px;
+                   }
+                   
+                   button {
+                       display: flex;
+                       align-items: center;
+                       justify-content: center;
+                       font-size: 15px !important;
+                       width: 150px;
+                       margin-top: 10px!important;
+                       background-color: #db2121d2 !important;
+                   }
+                   
+                   a {
+                       margin-top: 15px;
+                       color: white !important;
+                   }
+                   
+                   h1,
+                   label {
+                       color: white;
+                   }
