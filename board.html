@@ -11,16 +11,10 @@
     <script src="./mini_backend.js"></script>
     <script src="./join.js"></script>
     <script src="./board.js"></script>
-    
+
 
     <script>
-        setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
-        async function init() {
-            await downloadFromServer();
-            AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
-            loadAllTickets();
-            updateBoardHTML();
-        }
+        updateBoardHTML();
     </script>
     <title>Board</title>
 </head>

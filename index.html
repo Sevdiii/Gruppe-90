@@ -17,14 +17,17 @@
 
     <script src="bower_components/firebaseui/dist/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="bower_components/firebaseui/dist/firebaseui.css" />
+    <script src="./join.js"></script>
+    <script src="./mini_backend.js"></script>
+    <script src="./login.js"></script>
 </head>
 
-<body onload="includeHTML()">
+<body onload="includeHTML(), init()">
 
 
 
 
-    <div class="login-container">
+    <div id="login-me" class="login-container">
         <div class="sign-layout">
             <form onsubmit="login(); return false" id="login" class="form-signin">
                 <img class="mb-4" src="./img/joinlogo.png" alt="" width="72" height="72">
@@ -45,6 +48,10 @@
 
             </form>
         </div>
+    </div>
+
+    <div id="main">
+
     </div>
 
 

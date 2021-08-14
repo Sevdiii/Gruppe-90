@@ -15,14 +15,6 @@
     <script src="./backlog.js"></script>
 
 
-    <script>
-        setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
-        async function init() {
-            await downloadFromServer();
-            AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
-            backlog();
-        }
-    </script>
 
 
     <title>Join</title>

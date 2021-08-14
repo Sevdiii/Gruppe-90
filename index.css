@@ -38,3 +38,14 @@
                    label {
                        color: white;
                    }
+                   
+                   #main {
+                       display: flex;
+                       justify-content: center;
+                       align-items: center;
+                       height: 100vh;
+                   }
+                   
+                   .d-none {
+                       display: none;
+                   }
