@@ -9,20 +9,20 @@
 
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="./templates/header.css">
+
+
+
+
     <script src="./templates/template.js"></script>
 
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 
-    <script src="bower_components/firebaseui/dist/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="bower_components/firebaseui/dist/firebaseui.css" />
-    <script src="./join.js"></script>
-    <script src="./mini_backend.js"></script>
-    <script src="./login.js"></script>
+
 </head>
 
-<body onload="includeHTML(), init()">
+<body onload="includeHTML()">
 
 
 
@@ -31,18 +31,21 @@
         <div class="sign-layout">
             <form onsubmit="login(); return false" id="login" class="form-signin">
                 <img class="mb-4" src="./img/joinlogo.png" alt="" width="72" height="72">
-                <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Please login</h1>
                 <label for="inputEmail" class="sr-only">E-Mail address</label>
-                <input type="email" id="email" class="form-control" placeholder="E-Mail address" required autofocus>
+                <input type="email" id="email" class="form-control" placeholder="E-Mail address" required>
                 <label for="inputPassword" class="sr-only">Password</label>
                 <input type="password" id="password" class="form-control" placeholder="Password" required>
 
                 <div class="buttons">
-                    <button class="btn btn-lg btn-primary" type="submit" onsubmit="login()" value="Submit">Login</button>
-                    <button class="btn btn-lg btn-primary" type="button" onclick="changeForm()">Sign up</button>
+                    <button class="btn btn-lg btn-primary" type="button" onclick="signInUser()" value="Submit">Anmelden</button>
+                    <button class="btn btn-lg btn-primary" type="button" onclick="changeForm()">Registrieren</button>
 
                 </div>
-                <a href="./add-task.html">Login as Guest</a>
+                <div class="joinguest">
+                    <a class="joinguest" href="./add-task.html">Join as guest</a>
+                </div>
+
 
 
 
@@ -60,38 +63,42 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-firestore.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <!--SDK Firebase-->
+    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.css" />
 
 
-    <script src="./firebase-ui.js"></script>
+    <script src="./join.js"></script>
+    <script src="./login.js"></script>
     <script src="./firebase.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/ui/4.8.1/firebase-ui-auth.js"></script>
+    <script src="./firebase.ui.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
