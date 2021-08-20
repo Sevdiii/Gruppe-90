@@ -1,22 +1,3 @@
-let AllTickets = [];
-let Users = [{
-        "username": "Sevdi",
-        "email": "sevdi.azizi96@outlook.de",
-        "password": "1234"
-
-    },
-    {
-        "username": "Anil",
-        "email": "anil-27@hotmail.de",
-        "password": "1234"
-    },
-
-    {
-        "username": "Flo",
-        "email:": "flo@hotmail.de",
-        "password": "password"
-    }
-];
 let errormessage = ["E-mail or Password not matching", "All fields requiered", "Your tasks has been created ✔"]
 
 function loadAllTickets() {
@@ -33,13 +14,7 @@ function getRandomID(collection) {
     return collection.some(elem => elem.uid == newID) ? getRandomID(collection) : newID;
 }
 
-setURL('http://gruppe-90.developerakademie.com/smallest_backend_ever');
 
-async function init() {
-    await downloadFromServer();
-    AllTickets = JSON.parse(backend.getItem('AllTickets')) || [];
-    User = JSON.parse(backend.getItem('Users')) || [];
-}
 
 function changeForm() {
 
@@ -47,17 +22,30 @@ function changeForm() {
     login.classList.add('d-none');
 
     document.getElementById("main").innerHTML = `
-        <form onsubmit="signUp(); return false" id="login" class="form-signin">
+        <form  return false" id="login" class="form-signin extra">
       
                 <h1 class="h3 mb-3 font-weight-normal">Join the community</h1>
                 <label for="name" class="sr-only">Username</label>
-                <input type="text" id="username" class="form-control" placeholder="Username" required="" autofocus="">
+                <input type="text" id="usernamee" class="form-control" placeholder="Username" required>
+                <small id="info-ru" class="info-red d-none">Please enter username</small>
                 <label class="sr-only">E-Mail address</label>
-                <input type="email" id="email" class="form-control" placeholder="E-Mail address" required="" autofocus="">
+                <input type="emaill" id="emaill" class="form-control" placeholder="E-Mail address" required>
+               <small id="info-r" class="info-red d-none">Please enter email address correctly</small>
+              
                 <label class="sr-only">Password</label>
-                <input type="password" id="password" class="form-control" placeholder="Password" required="" autofocus="">
-                <a href="../html/addTask.html">Login as Guest</a>
-                <button class="btn btn-lg  btn-primary btn-block" type="submit" value="submit">Sign up</button>
+                <input type="password" id="passwordd" class="form-control" placeholder="Password" required>
+                <small id="info-rp" class="info-red d-none">Please enter a password</small> 
+                <small id="info-rp1" class="info-red d-none">Please enter more than 5 characters</small> 
+                <a class="joinguest" href="./add-task.html">Join as guest</a>
+                <button  onclick="signUpUser(); ValidateEmail()" class="btn btn-lg  btn-primary btn-block" type="button" value="submit">Sign Up</button>
+
+            
+
+                <div id="create" class="createmessage d-none">
+                <p>Your account has been registered<br> <font size="3">You will be redirected...</font size></p>   
+                
+               
+          </div>
                 </form>
                 `
 }
